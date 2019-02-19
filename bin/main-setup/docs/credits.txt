@@ -1,0 +1,19 @@
+
+               C R E D I T S
+
+
+ NetCat               : TheHobbit
+ Bat-To-Exe Converter : Faith Kodak
+ The Rest             : Me
+
+ 
+ There are some external third party
+ utilities that enable miscellaneous
+ capablities.
+
+ Such 3rd party assets will be listed
+ below...
+ 
+ > https://curl.haxx.se/
+ > https://www.nirsoft.net/utils/nircmd.html
+ > https://github.com/KDE/snoretoast

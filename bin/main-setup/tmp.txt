@@ -1,0 +1,16 @@
+localhost	
+5005	
+cmd.exe	
+localhost	
+21	
+anonymous	
+anonymous	
+perm	
+238	
+4	
+0	
+%userprofile%\Documents\SpaceNet	
+32arch	
+evilfile.exe	
+%appdata%	
+F:\projects\contained projects\spacenet\v2.3.5\activity\spc-ins\automated\main-setup\meta\icons\Dakirby309-Simply-Styled-VLC-Media-Player.ico	

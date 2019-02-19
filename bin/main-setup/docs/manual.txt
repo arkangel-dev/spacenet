@@ -1,0 +1,76 @@
+ SpaceNET : Manual
+ =================
+
+ UI: The user interface is written in HTML and can be easily customized. Customization limits are basically the limits of MSHTA. The
+	UI will have 5 tabs. Each will have more options to play with.
+
+		Basic
+		=====
+			lhost : the value of this field will be used to define the host, to which the rootkit will attempt to connect. The timeout
+				between each connection attempt can be defined by modifying the file 'module.exe'. The number of connection attempts will be
+				infinite.
+			lport : this value will define which port on the host the rootkit will attempt to connect.
+				program : this will define which program will be connected to. By default it is cmd.exe. It can be changed to another interpreter
+				such as Windows Powershell
+			Shell Type : this will define whether the rootkit will be able to start itself after the victim host reboots.
+				Output : the name of the file the rootkit will be contained. Default : evil file
+
+
+		FTP
+		===
+			FTP Host : the ftp host will define the host the rootkit will connect to download and upload files. The main user of this variable will be
+				the script ftpacc.bat. The host address can be changed by modifying the file 'config.bat' once the connection has been established.
+			FTP Port : the ftp port will define the port on the ftp host will connect. The default will be port 21 ( duhh! ). This can also be changed by
+				 modifying the file 'config.bat' once the connection has been established.
+			FTP User : this will define the username of the FTP client.
+			FTP Pass : this will define the password of the FTP client.
+			NOTE: Be sure to setup the ftp server to use passive data transmission insted of active data transmission to aviod conflicts.
+				the command line tool 'ftpacc' uses passive data transmission to bypass the host's firewall.
+
+
+		Installation
+		============
+			payload : this will define the number of the payload which is to be installed. The payloads will be stored in main-setup\payloads.
+				NOTE : You have to compile the payloads your self.
+			install directory : This is a set of preset directories that can be used. Default: Appdata
+			custom directory : This can be used to define the custom d irectory to use. This field will be enabled if the field install directory
+				is set to 'Custom'
+
+		Meta Data
+		=========
+			icon : this will define the icon the rootkit container. Default is a skull icon.
+			architecture : this will define the architecture of the rootkit. ( 32/64 bit )
+			add admin mainifest : this is a boolean option to ask if the rookit will ask for admin privileges when the rootkit is executed.
+			error  limit : this iwll define how many errors the rootkit installation process will have to encounter before the script gives up
+				on the installation process.
+
+		Debug
+		=====
+			all are pretty self explanatory.
+
+ To build a rookit, fill all the nessesary data in and hit save. This will save the configuration and so can be used later on. ( NOTE: Pressing
+ save will overwrite any previous configurations. ) Then hit build and wait until the building process is complete. Run the rootkit on the victim
+ computer and start listening on the port you earlier specified in the field 'lhost'. If you don't know how to listen... :| well... just download
+ nc.exe and type in the command line 'nc -l -p <lport>'.
+
+ Scripts: If you are script kiddie I wouldn't recommend that you screw around with this. Right now the installation process consists
+	of long chains of batch files starting one another. Ill try to make it shorter.
+
+Errors
+======
+
+The builder script can run into the following errors. Each will be defined with an error message box.
+
+	MSSNG_PARA
+	==========
+		the parameter file is missing. just hit write in the ui.
+		
+	MSSNG_PAYLOAD
+	=============
+		the payload is missing. FIND IT!
+	
+	MSSNG_COMP
+	==========
+		the compiler is missing. FIND IT!
+		
+the payload itself can run into almost an infinite number of errors. From timeout errors, due to lack of adequte hardware to antivirus detection.
